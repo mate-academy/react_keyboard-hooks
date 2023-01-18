@@ -4,7 +4,7 @@ export const App: React.FC = () => {
   const [keyPressed, setKeyPressed] = useState('');
 
   useEffect(() => {
-    document.addEventListener('keyup', (event: KeyboardEvent) => {
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
       setKeyPressed(event.key);
     });
   }, []);
