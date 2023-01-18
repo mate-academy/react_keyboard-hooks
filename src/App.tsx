@@ -8,6 +8,10 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     document.addEventListener('keyup', keyupHandler);
+
+    return () => {
+      document.removeEventListener('keyup', keyupHandler);
+    };
   }, []);
 
   return (
