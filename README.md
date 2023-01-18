@@ -22,4 +22,4 @@ Implement the App using React Hooks useState and useEffect
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
 - Replace `<your_account>` with your Github username in the [DEMO LINK](https://KareemAchkar.github.io/react_keyboard/) and add it to the PR description.
-d
+

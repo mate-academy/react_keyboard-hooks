@@ -10,7 +10,7 @@ export const App: React.FC = () => {
     document.addEventListener('keyup', handleKey);
 
     return () => document.removeEventListener('keyup', handleKey);
-  });
+  }, []);
 
   return (
     <div className="App">
@@ -26,7 +26,6 @@ export const App: React.FC = () => {
 
           : <p className="App__message">Nothing was pressed yet</p>
       }
-
     </div>
   );
 };
