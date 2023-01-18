@@ -7,7 +7,7 @@ export const App: React.FC = () => {
     document.addEventListener('keyup', (event: KeyboardEvent) => {
       setPressedKey({ pressedKey: event.key });
     });
-  }, []);
+  }, [pressedKey.pressedKey]);
 
   return (
     <div className="App">
