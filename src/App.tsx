@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react';
 export const App: React.FC = () => {
   const [pressedKey, setPressedKey] = useState('');
 
+  const keyBoardHandler = (event: KeyboardEvent) => {
+    setPressedKey(event.key);
+  };
+
   useEffect(() => {
-    document.addEventListener('keyup', (event: KeyboardEvent) => {
-      setPressedKey(event.key);
-    });
+    document.addEventListener('keyup', keyBoardHandler);
+
+    return () => document.removeEventListener('keyup', keyBoardHandler);
   }, [pressedKey]);
 
   return (
