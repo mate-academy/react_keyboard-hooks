@@ -8,7 +8,7 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', detectKeyDown, true);
+    document.addEventListener('keydown', detectKeyDown);
   }, []);
 
   return (
@@ -17,7 +17,13 @@ export const App: React.FC = () => {
       <input type="text" />
       {
         keyPressed
-          ? <p className="App__message">{`The last pressed key is [${keyPressed}]`}</p>
+          ? (
+            <p className="App__message">
+              The last pressed key is [
+              {keyPressed}
+              ]
+            </p>
+          )
           : <p className="App__message">Nothing was pressed yet</p>
       }
     </div>
