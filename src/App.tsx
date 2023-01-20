@@ -8,18 +8,24 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', detectKeyDown);
-  }, []);
+    document.addEventListener('keyup', detectKeyDown);
+
+    return () => document.removeEventListener('keyup', detectKeyDown);
+  }, [usedKeyboardKey]);
 
   return (
     <div className="App">
       {/* Keep this input for tests */}
       <input type="text" />
-      {
-        usedKeyboardKey
-          ? <p className="App__message">The last pressed key is [{usedKeyboardKey}]</p>
-          : <p className="App__message">Nothing was pressed yet</p>
-      }
+      {usedKeyboardKey ? (
+        <p className="App__message">
+          The last pressed key is [
+          {usedKeyboardKey}
+          ]
+        </p>
+      ) : (
+        <p className="App__message">Nothing was pressed yet</p>
+      )}
     </div>
   );
 };
