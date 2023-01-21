@@ -9,6 +9,8 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     document.addEventListener('keyup', handleKey);
+
+    return () => document.removeEventListener('keyup', handleKey);
   }, []);
 
   return (
