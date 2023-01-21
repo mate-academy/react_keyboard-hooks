@@ -9,15 +9,15 @@ export const App: React.FC = () => {
     if (event.key === ' ') {
       setKey('Space');
     }
-  }
+  };
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyEvent);
 
     return () => {
       document.addEventListener('keyup', handleKeyEvent);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className="App">
@@ -27,5 +27,5 @@ export const App: React.FC = () => {
           : 'Nothing was pressed yet'}
       </p>
     </div>
-  )
-}
+  );
+};
