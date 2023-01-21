@@ -3,15 +3,6 @@ import React, { useState, useEffect } from 'react';
 export const App: React.FC = () => {
   const [key, setKey] = useState('');
 
-  useEffect(() => {
-    document.addEventListener('keyup', handleKeyEvent);
-
-    return () => {
-      document.addEventListener('keyup', handleKeyEvent);
-    }
-  }, [])
-
-
   const handleKeyEvent = (event: KeyboardEvent) => {
     setKey(event.key);
 
@@ -19,6 +10,14 @@ export const App: React.FC = () => {
       setKey('Space');
     }
   }
+
+  useEffect(() => {
+    document.addEventListener('keyup', handleKeyEvent);
+
+    return () => {
+      document.addEventListener('keyup', handleKeyEvent);
+    }
+  }, [])
 
   return (
     <div className="App">
