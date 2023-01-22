@@ -3,10 +3,14 @@ import { useEffect, useState } from 'react';
 export const App: React.FC = () => {
   const [keyPressed, setKeyPressed] = useState('');
 
+  const keyUpHandler = (event: KeyboardEvent) => {
+    setKeyPressed(event.key);
+  };
+
   useEffect(() => {
-    document.addEventListener('keydown', (event: KeyboardEvent) => {
-      setKeyPressed(event.key);
-    });
+    document.addEventListener('keyup', keyUpHandler);
+
+    return () => document.removeEventListener('keyup', keyUpHandler);
   }, []);
 
   return (
