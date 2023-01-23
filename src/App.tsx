@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react';
 export const App: React.FC = () => {
   const [pressedKey, setPressedKey] = useState('');
 
-  useEffect(() => (
-    document.addEventListener('keyup', (event) => setPressedKey(event.key))
-  ));
+  const keyupHandler = (event: KeyboardEvent) => setPressedKey(event.key);
+
+  useEffect(() => {
+    document.addEventListener('keyup', keyupHandler);
+
+    return () => document.removeEventListener('keyup', keyupHandler);
+  }, []);
 
   return (
     <div className="App">
