@@ -3,24 +3,24 @@ import React, { useEffect, useState } from "react";
 export const App: React.FC = () => {
   const [pressedKey, setPressedKey] = useState("");
 
-  const keyBoardHandler = (event: KeyboardEvent) => {
+  const handlekeyBoard = (event: KeyboardEvent) => {
     setPressedKey(event.key);
   };
 
   useEffect(() => {
-    document.addEventListener("keyup", keyBoardHandler);
+    document.addEventListener("keyup", handlekeyBoard);
 
-    return () => document.removeEventListener("keyup", keyBoardHandler);
+    return () => document.removeEventListener("keyup", handlekeyBoard);
   }, [pressedKey]);
+
   return (
     <div className="App">
       <input type="text" />
-
-      {pressedKey ? (
-        <p className="App__message">{`The last pressed key is [${pressedKey}]`}</p>
-      ) : (
-        <p className="App__message">Nothing was pressed yet</p>
-      )}
+      <p className="App__message">
+        {pressedKey
+          ? `The last pressed key is [${pressedKey}]`
+          : "Nothing was pressed yet"}
+      </p>
     </div>
   );
 };
