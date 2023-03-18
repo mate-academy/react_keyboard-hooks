@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function App() {
+export const App: React.FC = () => {
   const [pressedKey, setPressedKey] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ export function App() {
       </p>
     </div>
   );
-}
+};
