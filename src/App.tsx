@@ -15,9 +15,7 @@ export const App: React.FC = () => {
     <div className="App">
       {/* Keep this input for tests */}
       <input type="text" />
-
       <p className="App__message">
-
         {pressedKey === ''
           ? 'Nothing was pressed yet'
           : `The last pressed key is [${pressedKey}]`}
