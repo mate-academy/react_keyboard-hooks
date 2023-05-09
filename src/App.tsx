@@ -7,6 +7,12 @@ export const App: React.FC = () => {
     document.addEventListener('keyup', (event: KeyboardEvent) => {
       setKey(event.key);
     });
+
+    return () => {
+      document.removeEventListener('keyup', (event: KeyboardEvent)=> {
+        setKey(event.key);
+      });
+    };
   });
 
   return (
