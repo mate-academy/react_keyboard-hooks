@@ -31,7 +31,8 @@ export const App: React.FC = () => {
       />
 
       <p className="App__message">
-        {key === '' ? 'Nothing was pressed yet'
+        {!key
+          ? 'Nothing was pressed yet'
           : `The last pressed key is [${key}]`}
       </p>
     </div>
