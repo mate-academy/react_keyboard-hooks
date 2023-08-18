@@ -3,17 +3,15 @@ import React, { useState, useEffect } from 'react';
 export const App: React.FC = () => {
   const [pressedKey, setPressedKey] = useState('');
 
-  useEffect(() => {
-    document.addEventListener('keyup', (event: KeyboardEvent) => {
-      setPressedKey(event.key);
-    });
+  const handleKey = (event: KeyboardEvent) => {
+    setPressedKey(event.key);
+  };
 
-    return () => {
-      document.removeEventListener('keyup', (event: KeyboardEvent) => {
-        setPressedKey(event.key);
-      });
-    };
-  });
+  useEffect(() => {
+    document.addEventListener('keyup', handleKey);
+
+    return () => document.removeEventListener('keyup', handleKey);
+  }, []);
 
   return (
     <div className="App">
@@ -28,4 +26,3 @@ export const App: React.FC = () => {
     </div>
   );
 };
-
