@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export const App: React.FC = () => {
-  const [lastKey, setLastKey] = useState<string | null>('');
+  const [lastKey, setLastKey] = useState<string>('');
 
   const handleKeyUp = (event: KeyboardEvent) => {
     setLastKey(event.key);
@@ -22,8 +22,8 @@ export const App: React.FC = () => {
 
         <p className="App__message">
           {
-            lastKey === ''
-              ? 'Nothing was presset yet.'
+            lastKey
+              ? 'Nothing was presset yet'
               : `The last pressed key is [${lastKey}]`
           }
         </p>
